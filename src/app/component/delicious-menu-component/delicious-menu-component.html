@@ -1,0 +1,35 @@
+<section class="delicious-menu py-5">
+  <div class="container text-center">
+    <span class="label-yellow">MENU</span>
+    <div class="divider-yellow mx-auto my-3"></div>
+    
+    <h2 class="section-title" [innerHTML]="getFormattedTitle(mainTitle)"></h2>
+
+    <div class="slider-container mt-5">
+      <swiper-container 
+        #swiperEl
+        init="false"
+        slides-per-view="1" 
+        navigation="true" 
+        pagination="false"
+        space-between="30"
+        breakpoints='{"992": {"slidesPerView": 3}}'>
+        
+        @for (burger of burgers; track burger.id) {
+          <swiper-slide>
+            <div class="burger-card">
+              <div class="img-wrapper">
+                <img [src]="'/' + burger.image" [alt]="burger.nom" class="img-fluid">
+              </div>
+              <h4 class="burger-name">{{ burger.nom }}</h4>
+              <p class="burger-desc">{{ burger.description }}</p>
+              <button class="btn-order">ORDER NOW</button>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    </div>
+
+    <button class="btn-view-more mt-5">VIEW MORE</button>
+  </div>
+</section>

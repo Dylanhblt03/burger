@@ -1,0 +1,24 @@
+<section class="about-section" 
+         [style.backgroundImage]="aboutData ? 'url(/' + aboutData.imgPath + ')' : 'none'">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6"></div>
+
+      <div class="col-lg-6">
+        <div class="about-content">
+          <span class="label-yellow">{{ aboutData?.title }}</span> 
+          <div class="divider-yellow my-3"></div>
+          
+          <h2 class="about-title" [innerHTML]="getFormattedTitle(aboutData?.subTitle || '')"></h2>
+          
+          <div class="divider-yellow my-3"></div>
+          
+          <p class="about-description">
+            {{ aboutData?.contenu }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

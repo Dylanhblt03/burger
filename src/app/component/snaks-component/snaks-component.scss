@@ -1,0 +1,60 @@
+@use '../../../variables' as var;
+
+.snaks-section {
+  background-color: #000; 
+
+  .snack-card {
+    position: relative; 
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+
+
+    .snack-bg {
+      display: block;
+      border-radius: 20px; 
+    }
+
+    .snack-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%; 
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 20px;
+      color: white;
+
+      .snack-title {
+        font-family: var.$roboto;
+        font-weight: 900;
+        font-size: 1.8rem; 
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+
+      .snack-subtitle {
+        font-family: var.$roboto;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        opacity: 0.9;
+      }
+
+      .read-more {
+        font-family: var.$roboto;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.7); 
+        text-transform: uppercase;
+
+        &:hover {
+          color: var.$yellowText; 
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<section class="snaks-section py-5">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      
+      @for (snack of snacks; track snack.id) {
+        <div class="col-md-4">
+          <div class="snack-card">
+            
+            <img [src]="getImagePath(snack.nom)" 
+                 [alt]="snack.nom" 
+                 class="img-fluid w-100 snack-bg">
+            
+            <div class="snack-overlay">
+              <h3 class="snack-title">{{ snack.nom }}</h3>
+              <p class="snack-subtitle">{{ getSubtitle(snack.nom) }}</p>
+              <a href="#" class="read-more">READ MORE</a>
+            </div>
+
+          </div>
+        </div>
+      }
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+@use '../../../variables' as var;
+
+.about-section {
+  min-height: 600px;
+  background-color: #000;
+  background-repeat: no-repeat;
+  
+  background-position: center;   
+  background-size: cover;        
+  
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  color: white;
+
+  .about-content {
+    padding-left: 50px;
+
+    .label-yellow {
+      color: var.$yellowText;
+      font-family: var.$roboto;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .divider-yellow {
+      width: 100%;
+      max-width: 450px;
+      height: 2px;
+      background-color: var.$yellowText;
+    }
+
+    .about-title {
+      font-family: var.$roboto;
+      font-weight: 900;
+      font-size: 65px;
+      line-height: 1.1; 
+      text-transform: uppercase;
+      margin: 25px 0;
+
+      ::ng-deep .hashtag {
+        color: var.$yellowText;
+      }
+    }
+
+    .about-description {
+      font-family: var.$roboto;
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.8;
+      max-width: 500px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .about-section {
+    background-image: none !important; 
+    text-align: center;
+    
+    .about-content {
+      padding-left: 0;
+      .divider-yellow { margin: 15px auto; }
+    }
+  }
+}

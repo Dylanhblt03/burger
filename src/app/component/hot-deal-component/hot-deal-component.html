@@ -1,0 +1,28 @@
+<section class="hot-deal-section py-5" *ngIf="hotDeal">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <div class="col-lg-6">
+        <div class="deal-content">
+          <span class="label-yellow">{{ hotDeal.title }}</span>
+          <div class="yellow-divider my-3"></div>
+          
+          <h2 class="deal-title" [innerHTML]="getFormattedTitle(hotDeal.subTitle)"></h2>
+          
+          <div class="yellow-divider my-3"></div>
+          
+          <p class="deal-description">
+            {{ hotDeal.contenu }}
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="deal-image-wrapper text-center">
+          <img [src]="'/' + hotDeal.imgPath" class="img-fluid hot-deal-img" alt="Hot Deal">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

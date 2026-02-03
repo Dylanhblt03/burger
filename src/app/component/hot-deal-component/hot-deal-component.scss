@@ -1,0 +1,83 @@
+@use '../../../variables' as var;
+
+.hot-deal-section {
+  background-color: #000;
+  color: white;
+  padding: 100px 0;
+  overflow: hidden;
+
+  .deal-content {
+    .label-yellow {
+      color: var.$yellowText; 
+      font-family: var.$roboto;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .yellow-divider {
+      width: 100%;
+      max-width: 450px;
+      height: 2px;
+      background-color: var.$yellowText;
+      margin: 20px 0;
+    }
+
+    .deal-title {
+      font-family: var.$roboto;
+      font-weight: 900;
+      font-size: 80px; 
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin: 25px 0;
+
+      ::ng-deep .hashtag {
+        color: var.$yellowText;
+      }
+    }
+
+    .deal-description {
+      font-family: var.$roboto;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 500px;
+      color: rgba(255, 255, 255, 0.8); 
+      margin-top: 30px;
+    }
+  }
+
+  .deal-image-wrapper {
+    position: relative;
+    z-index: 1;
+
+    .hot-deal-img {
+      width: 110%;
+      max-width: 800px;
+      height: auto;
+      filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.9));
+      transition: transform 0.5s ease;
+
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .hot-deal-section {
+    text-align: center;
+    
+    .yellow-divider {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .deal-title {
+      font-size: 55px;
+    }
+    
+    .deal-image-wrapper .hot-deal-img {
+      width: 100%;
+      margin-top: 50px;
+    }
+  }
+}

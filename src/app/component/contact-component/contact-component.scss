@@ -1,0 +1,85 @@
+@use '../../../variables' as var;
+
+.contact-section {
+  background-color: #000;
+  color: #fff;
+  padding: 100px 0;
+
+  .contact-header {
+    .contact-label {
+      color: var.$yellowText;
+      font-family: var.$roboto;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .header-line {
+      width: 400px;
+      height: 2px;
+      background-color: var.$yellowText;
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+
+    .contact-title {
+      font-family: var.$roboto;
+      font-weight: 900;
+      font-size: 70px;
+      text-transform: uppercase;
+
+      .highlight {
+        color: var.$yellowText;
+      }
+    }
+  }
+
+  .form-heading {
+    color: var.$yellowText;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  .custom-input {
+    background-color: #1a1a1a; 
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    padding: 15px 20px;
+    font-family: var.$arial;
+
+    &::placeholder {
+      color: #666;
+    }
+
+    &:focus {
+      background-color: #252525;
+      box-shadow: none;
+      color: #fff;
+    }
+  }
+
+  .info-list li, .opening-hours p {
+    font-family: var.$arial;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #e0e0e0;
+  }
+
+  .bouton-orange {
+    background-color: var.$orangeButtons;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 94, 24, 0.4);
+    }
+  }
+}
