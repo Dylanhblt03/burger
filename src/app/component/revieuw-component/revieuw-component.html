@@ -1,1 +1,31 @@
-<p>revieuw-component works!</p>
+<section id="reviews" class="reviews-section">
+  <div class="container-fluid text-center">
+    <p class="subtitle">REVIEWS</p>
+    <h2 class="title">WHAT OUR <span class="highlight">#CLIENTS</span> SAY</h2>
+    <div class="divider"></div>
+
+    @if (reviews.length > 0) {
+      <swiper-container 
+        navigation="true" 
+        pagination="true" 
+        loop="true" 
+        slides-per-view="1">
+        @for (r of reviews; track r.id) {
+          <swiper-slide>
+            <div class="review-card d-flex align-items-center justify-content-center">
+              <img [src]="'/' + r.photo" class="user-img">
+              <div class="speech-bubble">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h4 class="user-name">{{ r.name }} {{ r.familyName }}</h4>
+                  <span class="date">published on {{ r.dateAvis }}</span>
+                </div>
+                <div class="stars">★★★★★</div>
+                <p class="comment">{{ r.message }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+        }
+      </swiper-container>
+    }
+  </div>
+</section>

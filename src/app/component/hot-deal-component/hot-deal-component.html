@@ -1,16 +1,17 @@
-<section class="hot-deal-section py-5" *ngIf="hotDeal">
+@if (hotDeal) {
+<section id="hotdeals" class="hot-deal-section py-5">
   <div class="container">
     <div class="row align-items-center">
-      
+
       <div class="col-lg-6">
         <div class="deal-content">
           <span class="label-yellow">{{ hotDeal.title }}</span>
           <div class="yellow-divider my-3"></div>
-          
+
           <h2 class="deal-title" [innerHTML]="getFormattedTitle(hotDeal.subTitle)"></h2>
-          
+
           <div class="yellow-divider my-3"></div>
-          
+
           <p class="deal-description">
             {{ hotDeal.contenu }}
           </p>
@@ -26,3 +27,4 @@
     </div>
   </div>
 </section>
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeliciousMenuService } from '../../services/delicious-menu-service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -12,23 +12,25 @@ register();
   imports: [CommonModule],
   templateUrl: './delicious-menu-component.html',
   styleUrl: './delicious-menu-component.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DeliciousMenuComponent implements OnInit {
-  @ViewChild('swiperEl') swiperRef!: ElementRef; 
-  
+  @ViewChild('swiperEl') swiperRef!: ElementRef;
+
   burgers: any[] = [];
   mainTitle: string = "OUR #DELICIOUS BURGERS";
 
   constructor(
     private menuService: DeliciousMenuService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     this.menuService.getBurgers().subscribe({
       next: (data) => {
         this.burgers = data;
+        this.cdr.detectChanges();
         setTimeout(() => {
           this.initSwiper();
         }, 50);
@@ -43,17 +45,20 @@ export class DeliciousMenuComponent implements OnInit {
 
       const swiperParams = {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 20,
         navigation: true,
         pagination: false,
+        loop: true,
         breakpoints: {
           992: {
-            slidesPerView: 3
+            slidesPerView: 3,
+            spaceBetween: 40
           }
         },
       };
       Object.assign(swiperEl, swiperParams);
-      swiperEl.initialize(); 
+      swiperEl.initialize();
+      this.cdr.detectChanges();
     }
   }
 

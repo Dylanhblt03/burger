@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategorieService } from '../../services/categorie-service';
 
@@ -12,13 +12,13 @@ import { CategorieService } from '../../services/categorie-service';
 export class SnaksComponent implements OnInit {
   snacks: any[] = [];
 
-  constructor(private categorieService: CategorieService) {}
+  constructor(private categorieService: CategorieService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.categorieService.getAllCategories().subscribe({
       next: (data) => {
-        this.snacks = data; 
-        console.log('Données Snacks chargées avec succès !');
+        this.snacks = data;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.error('Erreur API snacks:', err);

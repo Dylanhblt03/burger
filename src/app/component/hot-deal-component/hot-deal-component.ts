@@ -1,6 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArticleService } from '../../services/article-service'; 
+import { ArticleService } from '../../services/article-service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -13,13 +13,15 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class HotDealComponent implements OnInit {
   private articleService = inject(ArticleService);
   private sanitizer = inject(DomSanitizer);
-  
+  private cdr = inject(ChangeDetectorRef);
+
   hotDeal: any = null;
 
   ngOnInit() {
     this.articleService.getArticleById(3).subscribe({
       next: (data) => {
         this.hotDeal = data;
+        this.cdr.detectChanges();
       },
       error: (err) => console.error('Erreur lors de la récupération du Hot Deal:', err)
     });

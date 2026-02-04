@@ -1,35 +1,33 @@
-<section class="delicious-menu py-5">
+<section id="menu" class="delicious-menu-section">
   <div class="container text-center">
-    <span class="label-yellow">MENU</span>
-    <div class="divider-yellow mx-auto my-3"></div>
+    <p class="subtitle">MENU</p>
+    <div class="divider"></div>
     
-    <h2 class="section-title" [innerHTML]="getFormattedTitle(mainTitle)"></h2>
+    <h2 class="title" [innerHTML]="getFormattedTitle(mainTitle)"></h2>
 
-    <div class="slider-container mt-5">
+    @if (burgers && burgers.length > 0) {
       <swiper-container 
         #swiperEl
         init="false"
-        slides-per-view="1" 
-        navigation="true" 
-        pagination="false"
-        space-between="30"
-        breakpoints='{"992": {"slidesPerView": 3}}'>
+        class="mt-5">
         
         @for (burger of burgers; track burger.id) {
           <swiper-slide>
             <div class="burger-card">
-              <div class="img-wrapper">
-                <img [src]="'/' + burger.image" [alt]="burger.nom" class="img-fluid">
+              <div class="img-container">
+                <img [src]="'/' + burger.photo" [alt]="burger.nom">
               </div>
-              <h4 class="burger-name">{{ burger.nom }}</h4>
-              <p class="burger-desc">{{ burger.description }}</p>
-              <button class="btn-order">ORDER NOW</button>
+              <h4 class="burger-name mt-5">{{ burger.nom }}</h4>
+              <p class="burger-desc mt-3">{{ burger.description }}</p>
+              <a href="#" class="order-btn">ORDER NOW</a>
             </div>
           </swiper-slide>
         }
       </swiper-container>
-    </div>
+    }
 
-    <button class="btn-view-more mt-5">VIEW MORE</button>
+    <div class="view-more-container">
+      <button class="btn-view-more">VIEW MORE</button>
+    </div>
   </div>
 </section>

@@ -1,53 +1,60 @@
-<footer class="footer-section">
+<footer class="footer-orange">
   <div class="container">
     <div class="row gy-4">
       
-      <div class="col-lg-3 col-md-6">
+      <div class="col-lg-3 col-md-6 text-center text-lg-start">
         <div class="footer-logo mb-4">
-          <img src="logo.png" alt="Burger Special" class="img-fluid">
+          <img src="logo.png" class="img-fluid" alt="Logo">
         </div>
-        <button class="mon-bouton-jaune w-100">GET A QUOTE</button>
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <h4 class="footer-title">TWEETS WIDGET</h4>
-        <p class="footer-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-        </p>
+        @if (footerData) {
+          <h4 class="footer-title">{{ footerData.title }}</h4>
+          <p class="footer-text" style="white-space: pre-line; line-height: 1.6; color: white;">
+            {{ footerData.contenu }}
+          </p>
+          <button class="btn-get-quote mt-3">
+            {{ footerData.libelle_lien }}
+          </button>
+        }
       </div>
 
       <div class="col-lg-3 col-md-6">
         <h4 class="footer-title">USEFUL LINKS</h4>
-        <ul class="footer-links list-unstyled">
-          <li><a href="#">Homepage</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Hot Deals</a></li>
-          <li><a href="#">Our Menu</a></li>
-          <li><a href="#">Reviews</a></li>
-          <li><a href="#">Contact Form</a></li>
+        <ul class="list-unstyled footer-links">
+          <li>➤ Homepage</li>
+          <li>➤ About</li>
+          <li>➤ Hot Deals</li>
+          <li>➤ Our Menu</li>
+          <li>➤ Reviews</li>
+          <li>➤ Contact Form</li>
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6">
         <h4 class="footer-title">OUR NEWSLETTER</h4>
-        <p class="footer-text">Subscribe to our Newsletter and stay in touch with our newest offers!</p>
-        <div class="newsletter-form d-flex">
-          <input type="email" class="form-control" placeholder="Your @e-mail...">
-          <button class="btn btn-send">SEND</button>
-        </div>
-        <small class="footer-note mt-2 d-block">Your e-mail is safe with us, we don't spam!</small>
+        <p class="footer-text">Subscribe to our Newsletter and stay in touch!</p>
+        
+        <form (submit)="onSubmit()" class="newsletter-group">
+          <input type="text" name="email" [(ngModel)]="email" [disabled]="isSubmitted" placeholder="Your @e-mail..." required>
+          <button type="submit" [disabled]="isSubmitted">SEND</button>
+        </form>
+        
+        <small class="footer-safe mt-2 d-block">
+          {{ isSubmitted ? 'Merci ! ✅' : "Your e-mail is safe with us!" }}
+        </small>
       </div>
-
     </div>
 
-    <div class="footer-bottom mt-5">
-      <div class="social-icons d-flex justify-content-center gap-3 mb-3">
+    <div class="footer-bottom text-center mt-5">
+      <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
-      <p class="copyright text-center">© Copyrights. All rights reserved.</p>
+      <p class="copyright">© 2024 Your Restaurant Name. All Rights Reserved.</p>
     </div>
   </div>
 </footer>

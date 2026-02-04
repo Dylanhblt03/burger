@@ -1,0 +1,119 @@
+@use '../../../variables' as var;
+
+.reviews-section {
+  background-color: var.$bgColor;
+  color: var.$mainText;
+  padding: 80px 0;
+  font-family: var.$roboto;
+
+  --swiper-navigation-color: #{var.$yellowText};
+  --swiper-pagination-color: #{var.$yellowText};
+  --swiper-navigation-size: 55px;
+
+  swiper-container {
+    padding: 0 120px 80px 120px;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    overflow: visible;
+    display: block;
+    min-height: 400px;
+
+    &::part(button-prev) {
+      left: 0px;
+      font-weight: 900;
+    }
+
+    &::part(button-next) {
+      right: 0px;
+      font-weight: 900;
+    }
+
+    &::part(bullet) {
+      width: 14px;
+      height: 14px;
+      background: transparent;
+      border: 2px solid var.$yellowText;
+      opacity: 1;
+      margin: 0 8px;
+    }
+
+    &::part(bullet-active) {
+      background: var.$yellowText;
+    }
+  }
+
+  .subtitle { 
+    color: var.$yellowText; 
+    font-weight: bold; 
+    letter-spacing: 2px; 
+    font-size: 16px; 
+  }
+
+  .title { 
+    font-weight: 900; 
+    font-size: 45px; 
+    text-transform: uppercase; 
+  }
+
+  .divider { 
+    width: 350px; 
+    height: 2px; 
+    background: var.$yellowText; 
+    margin: 15px auto 50px; 
+  }
+
+  .user-img { 
+    width: 180px; 
+    height: 180px; 
+    border-radius: 50%; 
+    z-index: 2; 
+    object-fit: cover; 
+  }
+
+  .speech-bubble {
+    background: #1a1a1a;
+    padding: 40px 60px;
+    border-radius: 20px;
+    margin-left: -45px;
+    width: 850px;
+    text-align: left;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid #1a1a1a;
+    }
+
+    .user-name { 
+      font-weight: 800; 
+      text-transform: uppercase; 
+      font-size: 24px; 
+      margin: 0; 
+    }
+
+    .date { 
+      font-size: 12px; 
+      color: #555; 
+    }
+
+    .stars { 
+      color: var.$yellowText; 
+      margin: 10px 0; 
+      font-size: 21px; 
+    }
+
+    .comment { 
+      color: #e0e0e0; 
+      font-size: 16px; 
+      line-height: 26px; 
+      font-style: italic; 
+    }
+  }
+}

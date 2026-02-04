@@ -34,10 +34,5 @@ export class App implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    // this.authService.fetchJwtToken().subscribe({
-    //   next: () => console.log('JWT récupéré avec succès'),
-    //   error: (err) => console.error('Erreur JWT critique :', err)
-    // });
-  }
+  ngOnInit() {}
 }

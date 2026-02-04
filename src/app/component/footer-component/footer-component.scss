@@ -1,119 +1,77 @@
-@use '../../../variables' as var;
-
-.footer-section {
-  background-color: var.$orangeButtons; 
-  color: #fff;
-  padding: 80px 0 30px;
+.footer-orange {
+  background-color: #ff6b2b;
+  color: white;
+  padding: 80px 0 20px 0;
 
   .footer-title {
-    font-family: var.$roboto;
-    font-weight: 900;
-    font-size: 20px;
-    margin-bottom: 25px;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 20px;
     text-transform: uppercase;
   }
 
   .footer-text {
     font-size: 14px;
     line-height: 1.6;
-    opacity: 0.9;
   }
 
-  .footer-links {
-    li {
-      margin-bottom: 10px;
-      position: relative;
-      padding-left: 20px;
-
-      &::before {
-        content: ">";
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 15px;
-        transition: 0.2s;
-
-        &:hover {
-          color: var.$yellowText;
-          padding-left: 5px;
-        }
-      }
-    }
+  .btn-get-quote {
+    background-color: #ffc200;
+    color: black;
+    border: none;
+    padding: 10px 40px;
+    font-weight: 800;
+    border-radius: 5px;
+    text-transform: uppercase;
   }
 
-  .newsletter-form {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 2px;
+  .footer-links li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
 
+  .newsletter-group {
+    display: flex;
     input {
       border: none;
-      padding-left: 15px;
-      font-size: 14px;
-      &:focus { box-shadow: none; }
+      padding: 10px;
+      flex-grow: 1;
+      border-radius: 5px 0 0 5px;
     }
-
-    .btn-send {
-      background-color: var.$yellowButtons;
-      color: #000;
-      font-weight: 900;
+    button {
+      background-color: #ffc200;
       border: none;
-      padding: 5px 20px;
-      border-radius: 6px;
+      padding: 10px 20px;
+      font-weight: 800;
+      border-radius: 0 5px 5px 0;
     }
   }
 
-  .footer-note {
-    font-style: italic;
-    font-size: 11px;
-    opacity: 0.8;
+  .footer-safe { 
+    font-size: 12px; 
+    font-style: italic; 
   }
 
   .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 30px;
-
-    .social-icons a {
+    padding-top: 20px;
+    
+    .social-icons i {
+      color: white; 
+      border: 2px solid white; 
+      border-radius: 50%;
       width: 40px;
       height: 40px;
-      border: 2px solid #fff;
-      border-radius: 50%;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: 0.3s;
-
-      &:hover {
-        background: #fff;
-        color: var.$orangeButtons;
-      }
+      margin: 0 10px;
+      font-size: 19px;
     }
-
-    .copyright {
-      font-size: 12px;
-      opacity: 0.7;
-      margin-top: 15px;
+    
+    .copyright { 
+      font-size: 11px; 
+      margin-top: 10px; 
     }
   }
-}
-
-.mon-bouton-jaune {
-  background-color: var.$yellowButtons;
-  color: #000;
-  border: none;
-  font-weight: 900;
-  padding: 12px;
-  border-radius: 8px;
-  text-transform: uppercase;
-  transition: 0.3s;
-  &:hover { transform: scale(1.05); }
 }
