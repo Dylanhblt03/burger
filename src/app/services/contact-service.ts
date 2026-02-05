@@ -9,7 +9,7 @@ export class ContactService {
   private http = inject(HttpClient);
   
   private apiUrl = 'http://localhost:8080/contact.php'; 
-  private getArticleUrl = 'http://localhost:8080/get_article.php';
+  private getArticleUrl = 'http://localhost:8080/article.php';
 
   sendContact(data: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

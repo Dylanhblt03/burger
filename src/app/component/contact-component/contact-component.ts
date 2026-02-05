@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArticleService } from '../../services/article-service';
@@ -14,7 +14,6 @@ import { ContactService } from '../../services/contact-service';
 export class ContactComponent implements OnInit {
   private articleService = inject(ArticleService);
   private contactSrv = inject(ContactService);
-  private cdr = inject(ChangeDetectorRef);
   private fb = inject(FormBuilder);
 
   contactForm: FormGroup;
@@ -22,19 +21,15 @@ export class ContactComponent implements OnInit {
 
   constructor() {
     this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      message: ['', [Validators.required, Validators.minLength(5)]]
+      message: ['', [Validators.required]]
     });
   }
 
   ngOnInit() {
-    this.articleService.getArticleById(6).subscribe({
-      next: (data) => {
-        this.contactInfo = data;
-        this.cdr.detectChanges();
-      },
-      error: (err) => console.error(err)
+    this.articleService.getArticleById(6).subscribe(data => {
+      this.contactInfo = data;
     });
   }
 
@@ -42,21 +37,15 @@ export class ContactComponent implements OnInit {
     if (this.contactForm.valid) {
       this.contactSrv.sendContact(this.contactForm.value).subscribe({
         next: (res) => {
-          if (res.status === 'success') {
-            alert('Message envoyé avec succès !');
-            this.contactForm.reset();
-            this.cdr.detectChanges();
-          } else {
-            alert("Erreur lors de l'envoi : " + (res.message || 'Données invalides'));
-          }
+          alert('Message envoyé !');
+          this.contactForm.reset();
         },
         error: (err) => {
+  
           console.error(err);
-          alert("Une erreur technique est survenue.");
+          alert("Erreur technique de connexion.");
         }
       });
-    } else {
-      this.contactForm.markAllAsTouched();
     }
   }
 }
