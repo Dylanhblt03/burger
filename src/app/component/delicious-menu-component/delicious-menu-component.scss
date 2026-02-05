@@ -38,12 +38,13 @@
     overflow: visible;
 
     &::part(button-prev) {
-      left: -40px;
+      left: -5px;
       font-weight: 900;
     }
 
     &::part(button-next) {
-      right: -40px;
+      top: 20px;
+      right: -5px;
       font-weight: 900;
     }
   }
